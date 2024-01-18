@@ -22,8 +22,7 @@ class CreateTblexamenespreguntas extends Migration
             $table->dateTime('fechaActualizacion');
             $table->timestamps();
 
-            $table->foreign('idExamen')->references('idExamen')->on('tblexamenes');
-            $table->foreign('cvePregunta')->references('cvePregunta')->on('tblpreguntas');
+
 
         });
     }

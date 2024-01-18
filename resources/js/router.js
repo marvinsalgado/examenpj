@@ -9,7 +9,7 @@ import Logout from './views/Logout'
 import Dashboard from './views/Dashboard'
 import GenerarExamen from './views/GenerarExamen'
 import VerExamen from './views/VerExamen'
-
+import Register from './views/Register'
 // Routes
 const router = new VueRouter({
     mode: 'history',
@@ -27,6 +27,11 @@ const router = new VueRouter({
             meta: {
                 requiresAuth: true,
             }
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: Register,
         },
         {
             path: '/dashboard',

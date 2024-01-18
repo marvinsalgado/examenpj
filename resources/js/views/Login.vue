@@ -18,7 +18,14 @@
                                 <input type="password" class="input" v-model="password" />
                             </div>
                         </div>
-                        <button type="submit" class="button is-primary">Iniciar Sesión</button>
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button type="submit" class="button is-primary">Iniciar Sesión</button>
+                            </div>
+                            <div class="control">
+                                <button type="button" @click="register" class="button is-danger">Crear nuevo registro</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -48,6 +55,9 @@ export default {
                 .catch(error => {
                     this.error = error.response.data;
                 });
+        },
+        register(){
+            this.$router.push({ name: "register" });
         }
     }
 };

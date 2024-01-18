@@ -10,6 +10,7 @@ const store = new Vuex.Store({
         preguntas: [],
         examenes: [],
         preguntasExamenes: [],
+        formRegister: null
     },
     getters: {
         loggedIn(state) {
@@ -26,6 +27,9 @@ const store = new Vuex.Store({
         destroyToken(state) {
             state.token = null
             state.userId = null
+        },
+        addFormRegister(state, formRegister) {
+            state.formRegister = formRegister
         }
     },
     actions: {
@@ -158,6 +162,20 @@ const store = new Vuex.Store({
                             resolve(response)
                         }
 
+                    })
+                    .catch(error => {
+                        //console.log(error)
+                        reject(error)
+                    })
+            })
+        },
+
+        addRegister({ commit }, payload) {
+            return new Promise((resolve, reject) => {
+                axios.post('/api/auth/register', payload)
+                    .then(response => {
+                        this.state.formRegister = response.data
+                        resolve(response)
                     })
                     .catch(error => {
                         //console.log(error)
